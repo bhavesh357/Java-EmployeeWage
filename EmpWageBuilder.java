@@ -5,8 +5,8 @@ public class EmpWageBuilder{
 	static final int IS_PART_TIME=1;
 	static final int MAX_HOURS=100;
 	static final int MAX_DAYS=20;
-	public static void main(String[] args){
-		//variables
+
+	public EmpWageBuilder(){
 		int empHrs=0;
 		int empWage=0;
 		int monthsHours=0;
@@ -30,5 +30,10 @@ public class EmpWageBuilder{
 		}
 		empWage=monthsHours* EMP_RATE_PER_HOUR;
 		System.out.println("Emp Wage: " + empWage);
+    }
+
+	public static void main(String[] args){
+		//variables
+		EmpWageBuilder emp=new EmpWageBuilder();
 	}
 }
