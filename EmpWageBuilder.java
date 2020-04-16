@@ -1,18 +1,28 @@
 public class EmpWageBuilder{
 	//Constants
 	static final int IS_FULL_TIME =2;
-	static final int EMP_RATE_PER_HOUR =20;
 	static final int IS_PART_TIME=1;
-	static final int MAX_HOURS=100;
-	static final int MAX_DAYS=20;
+	//variables
+	String companyName;
+	int empRatePerHour;
+	int maxHours;
+	int maxDays;
+	int empHrs;
+	int empWage;
+	int monthsHours;
+	int days;
 
-	public EmpWageBuilder(){
-		int empHrs=0;
-		int empWage=0;
-		int monthsHours=0;
-		int days=0;
+	public EmpWageBuilder(String companyName,int ratePerHour,int maxHours,int maxDays){
+		this.companyName=companyName;
+		this.empRatePerHour=ratePerHour;
+		this.maxHours=maxHours;
+		this.maxDays=maxDays;
+		this.empHrs=0;
+		this.empWage=0;
+		this.monthsHours=0;
+		this.days=0;
 		//Computation
-		while( days<MAX_DAYS && empHrs<MAX_HOURS ) {
+		while( days<this.maxDays && monthsHours<this.maxHours ) {
 			int empCheck = (int) (Math.random() * 100) % 3;
 			switch (empCheck) {
 				case IS_FULL_TIME:
@@ -28,12 +38,13 @@ public class EmpWageBuilder{
 			monthsHours += empHrs;
 			days++;
 		}
-		empWage=monthsHours* EMP_RATE_PER_HOUR;
-		System.out.println("Emp Wage: " + empWage);
+		empWage=monthsHours* this.empRatePerHour;
+		System.out.println(this.companyName +" Emp Wage: " + empWage);
     }
 
 	public static void main(String[] args){
 		//variables
-		EmpWageBuilder emp=new EmpWageBuilder();
+		new EmpWageBuilder("Reliance",20,100,20);
+		new EmpWageBuilder("BridgeLabz",40,80,14);
 	}
 }
