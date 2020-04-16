@@ -22,11 +22,11 @@ public class EmpWageBuilder {
             this.empRatePerHour = c.getEmpRatePerHour();
             this.maxHours = c.getMaxHours();
             this.maxDays = c.getMaxDays();
-            calculate();
+            calculate(c);
         }
     }
 
-    public void calculate() {
+    public void calculate(CompanyEmpWage c) {
         this.empHrs = 0;
         this.empWage = 0;
         this.monthsHours = 0;
@@ -45,10 +45,12 @@ public class EmpWageBuilder {
                     empHrs = 0;
                     break;
             }
+            c.addDailyWage(empHrs * this.empRatePerHour);
             monthsHours += empHrs;
             days++;
         }
         empWage = monthsHours * this.empRatePerHour;
+        c.setTotalWage(empWage);
         System.out.println(this.companyName + " Emp Wage: " + empWage);
     }
 }

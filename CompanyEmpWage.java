@@ -1,11 +1,14 @@
 package EmployeeWage;
 
+import java.util.ArrayList;
+
 public class CompanyEmpWage {
     private String companyName;
     private int empRatePerHour;
     private int maxHours;
     private int maxDays;
     private int totalWage;
+    ArrayList<Integer> dailyWage=new ArrayList<Integer>();
 
     public CompanyEmpWage(String companyName,int ratePerHour,int maxHours,int maxDays){
         this.companyName = companyName;
@@ -36,5 +39,9 @@ public class CompanyEmpWage {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public void addDailyWage(int wage){
+        dailyWage.add(wage);
     }
 }
