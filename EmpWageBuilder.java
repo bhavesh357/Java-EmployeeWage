@@ -1,5 +1,7 @@
 package EmployeeWage;
 
+import java.util.ArrayList;
+
 public class EmpWageBuilder {
     //Constants
     static final int IS_FULL_TIME = 2;
@@ -14,12 +16,14 @@ public class EmpWageBuilder {
     int monthsHours;
     int days;
 
-    public EmpWageBuilder(String companyName, int ratePerHour, int maxHours, int maxDays) {
-        this.companyName = companyName;
-        this.empRatePerHour = ratePerHour;
-        this.maxHours = maxHours;
-        this.maxDays = maxDays;
-        calculate();
+    public EmpWageBuilder(ArrayList<CompanyEmpWage> companies) {
+        for(CompanyEmpWage c: companies){
+            this.companyName = c.getCompanyName();
+            this.empRatePerHour = c.getEmpRatePerHour();
+            this.maxHours = c.getMaxHours();
+            this.maxDays = c.getMaxDays();
+            calculate();
+        }
     }
 
     public void calculate() {

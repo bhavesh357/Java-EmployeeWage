@@ -1,14 +1,18 @@
 package EmployeeWage;
 
-public class EmployeeBuilder {
-    EmpWageBuilder builder;
-    public EmployeeBuilder(String companyName,int ratePerHour,int maxHours,int maxDays){
-        this.builder= new EmpWageBuilder(companyName,ratePerHour,maxHours,maxDays);
-    }
+import java.util.ArrayList;
 
+public class EmployeeBuilder {
+    static ArrayList<CompanyEmpWage> companies;
+
+    public EmployeeBuilder(){
+        new EmpWageBuilder(companies);
+    }
     public static void main(String[] args){
         //variables
-        new EmployeeBuilder("Reliance",20,100,20);
-        new EmployeeBuilder("BridgeLabz",40,80,14);
+        companies=new ArrayList<CompanyEmpWage>();
+        companies.add(new CompanyEmpWage("Reliance",20,100,20));
+        companies.add(new CompanyEmpWage("Bridgelabz",40,80,24));
+        new EmployeeBuilder();
     }
 }
