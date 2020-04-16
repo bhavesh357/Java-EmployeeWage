@@ -16,7 +16,7 @@ public class EmpWageBuilder {
     int monthsHours;
     int days;
 
-    public EmpWageBuilder(ArrayList<CompanyEmpWage> companies) {
+    public EmpWageBuilder(CompanyEmpWage[] companies) {
         for(CompanyEmpWage c: companies){
             this.companyName = c.getCompanyName();
             this.empRatePerHour = c.getEmpRatePerHour();
