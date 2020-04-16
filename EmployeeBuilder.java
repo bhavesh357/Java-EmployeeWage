@@ -6,7 +6,8 @@ public class EmployeeBuilder {
     static ArrayList<CompanyEmpWage> companies;
 
     public EmployeeBuilder(){
-        new EmpWageBuilder(companies);
+        EmpWageBuilder builder=new EmpWageBuilder(companies);
+        builder.getTotalWage(companies);
     }
     public static void main(String[] args){
         //variables

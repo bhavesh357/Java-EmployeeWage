@@ -1,6 +1,8 @@
 package EmployeeWage;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EmpWageBuilder {
     //Constants
@@ -52,5 +54,14 @@ public class EmpWageBuilder {
         empWage = monthsHours * this.empRatePerHour;
         c.setTotalWage(empWage);
         System.out.println(this.companyName + " Emp Wage: " + empWage);
+    }
+
+    public HashMap<CompanyEmpWage,Integer> getTotalWage(ArrayList<CompanyEmpWage> companies) {
+        HashMap<CompanyEmpWage,Integer> companyWages=new HashMap<CompanyEmpWage,Integer>();
+        for(CompanyEmpWage c: companies){
+            companyWages.put(c,c.getTotalWage());
+            System.out.println(c.getCompanyName()+" has wage of "+c.getTotalWage());
+        }
+        return companyWages;
     }
 }
