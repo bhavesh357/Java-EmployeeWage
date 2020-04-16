@@ -12,11 +12,14 @@ public class EmpWageBuilder{
 	int monthsHours;
 	int days;
 
-	public EmpWageBuilder(String companyName,int ratePerHour,int maxHours,int maxDays){
-		this.companyName=companyName;
-		this.empRatePerHour=ratePerHour;
-		this.maxHours=maxHours;
-		this.maxDays=maxDays;
+	public EmpWageBuilder(String companyName,int ratePerHour,int maxHours,int maxDays) {
+		this.companyName = companyName;
+		this.empRatePerHour = ratePerHour;
+		this.maxHours = maxHours;
+		this.maxDays = maxDays;
+		calculate();
+	}
+	public void calculate(){
 		this.empHrs=0;
 		this.empWage=0;
 		this.monthsHours=0;
