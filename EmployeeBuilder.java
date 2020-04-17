@@ -7,7 +7,7 @@ public class EmployeeBuilder {
 
     public EmployeeBuilder(){
         EmpWageBuilder builder=new EmpWageBuilder(companies);
-        builder.getTotalWage(companies);
+        builder.getTotalWage("Reliance",companies);
     }
     public static void main(String[] args){
         //variables
