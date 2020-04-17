@@ -9,10 +9,6 @@ public class EmpWageBuilder {
     static final int IS_FULL_TIME = 2;
     static final int IS_PART_TIME = 1;
     //variables
-    String companyName;
-    int empRatePerHour;
-    int maxHours;
-    int maxDays;
     int empHrs;
     int empWage;
     int monthsHours;
@@ -20,10 +16,6 @@ public class EmpWageBuilder {
 
     public EmpWageBuilder(ArrayList<CompanyEmpWage> companies) {
         for(CompanyEmpWage c: companies){
-            this.companyName = c.getCompanyName();
-            this.empRatePerHour = c.getEmpRatePerHour();
-            this.maxHours = c.getMaxHours();
-            this.maxDays = c.getMaxDays();
             calculate(c);
         }
     }
@@ -34,7 +26,7 @@ public class EmpWageBuilder {
         this.monthsHours = 0;
         this.days = 0;
         //Computation
-        while (days < this.maxDays && monthsHours < this.maxHours) {
+        while (days < c.getMaxDays() && monthsHours < c.getMaxHours()) {
             int empCheck = (int) (Math.random() * 100) % 3;
             switch (empCheck) {
                 case IS_FULL_TIME:
@@ -47,13 +39,13 @@ public class EmpWageBuilder {
                     empHrs = 0;
                     break;
             }
-            c.addDailyWage(empHrs * this.empRatePerHour);
+            c.addDailyWage(empHrs * c.getEmpRatePerHour());
             monthsHours += empHrs;
             days++;
         }
-        empWage = monthsHours * this.empRatePerHour;
+        empWage = monthsHours * c.getEmpRatePerHour();
         c.setTotalWage(empWage);
-        System.out.println(this.companyName + " Emp Wage: " + empWage);
+        System.out.println(c.getCompanyName() + " Emp Wage: " + empWage);
     }
 
     public HashMap<CompanyEmpWage,Integer> getTotalWage(ArrayList<CompanyEmpWage> companies) {
